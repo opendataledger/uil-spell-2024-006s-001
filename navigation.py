@@ -1,16 +1,24 @@
-import streamlit as st
+mport streamlit as st
 import time
 from time import sleep
 from streamlit.runtime.scriptrunner import get_script_run_ctx
+from streamlit.source_util import get_pages
 
-# Function to get the current page name
+
 def get_current_page_name():
-    return "streamlit_app.py"
-    
-# Function to create the sidebar with page navigation
+    ctx = get_script_run_ctx()
+    if ctx is None:
+        raise RuntimeError("Couldn't get script context")
+
+    pages = get_pages("")
+
+    return pages[ctx.page_script_hash]["page_name"]
+
+
 def make_sidebar():
     with st.sidebar:
-        st.title("⚡ Cheatham Speller ββ")
+        st.title("⚡ Cheatham Speller β")
+        st.write("")
         st.write("")
 
         # Check if user is logged in
@@ -54,7 +62,8 @@ def check_user_inactivity():
     # Update the last activity time
     st.session_state.last_activity_time = current_time   
 
-# Logout function
+# ABOVE ADD
+
 def logout():
     st.session_state.logged_in = False
     st.info("✔️Logged out successfully!")
