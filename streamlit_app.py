@@ -31,6 +31,6 @@ if st.button("Log in", type="primary"):
         
         # Instead of using st.switch_page(), use st.experimental_rerun() to reload the page.
         st.switch_page("pages/page1.py") # Store the next page in session state
-        # st.experimental_rerun()  # Trigger a rerun to go to the new page
+
     else:
         st.error("❌Incorrect username or password")
