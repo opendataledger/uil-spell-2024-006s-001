@@ -1,7 +1,7 @@
 import streamlit as st
 import time
 from time import sleep
-##### from streamlit.runtime.scriptrunner import get_script_run_ctx
+from streamlit.runtime.scriptrunner import get_script_run_ctx
 
 # Function to get the current page name
 def get_current_page_name():
